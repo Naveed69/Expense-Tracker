@@ -1,0 +1,87 @@
+.heropage {
+  width: 100%;
+  height: 40vh;
+  background-color: #626262;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.balance,
+.expense {
+  width: 355px;
+  height: 180px;
+  background-color: #9b9b9b;
+  border-radius: 10px;
+  font-family: Ubuntu;
+  font-size: 30px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-weight: 400;
+}
+
+/* ------Bottuns-------- */
+.addbalance,
+.addexpense {
+  margin-top: 15px;
+  width: 168px;
+  height: 38px;
+  border: none;
+  border-radius: 20px;
+  color: #ffffff;
+  font-family: Ubuntu;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.addbalance {
+  background-image: linear-gradient(
+    to right,
+    rgba(181, 220, 82, 1),
+    rgba(137, 225, 72, 1)
+  );
+}
+.addexpense {
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 149, 149, 1),
+    rgba(255, 71, 71, 1),
+    rgba(255, 56, 56, 1)
+  );
+}
+
+/* -------------piachart---------------- */
+
+.bars {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.piachart {
+  width: 300px;
+  height: 180px;
+}
+
+.chart {
+  height: 170px;
+}
+.food,
+.entertainment,
+.travel {
+  width: 26px;
+  height: 8px;
+}
+.food {
+  background-color: #a000ff;
+}
+
+.entertainment {
+  background-color: #ff9304;
+}
+
+.travel {
+  background-color: #fde006;
+}
