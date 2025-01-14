@@ -2,4 +2,21 @@
   margin-left: 3px;
 }
 .mainpage {
+  height: 38vh;
+}
+
+.transactions {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.expenses {
+  width: 90%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 10px;
 }
