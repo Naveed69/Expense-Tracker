@@ -9,8 +9,11 @@
     "ajv": "^8.17.1",
     "ajv-keywords": "^5.1.0",
     "bootstrap": "^5.3.3",
+    "goober": "^2.1.16",
+    "notistack": "^3.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-modal": "^3.16.3",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
   },

@@ -73,6 +73,7 @@
 .travel {
   width: 26px;
   height: 8px;
+  margin-right: 10px;
 }
 .food {
   background-color: #a000ff;
