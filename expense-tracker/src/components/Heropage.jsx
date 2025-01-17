@@ -3,32 +3,93 @@ import "./heropage.css";
 import AddModal from "./modal/AddbalanceModal";
 import AddBalanceForm from "./Forms/AddBalanceForm";
 import AddEditExpenseForm from "./Forms/AddEditExpenseForm";
-const Heropage = () => {
-  const [balance, setBalance] = useState(0);
-  const [expense, setExpense] = useState(0);
-
-  const [addbalanceIsopen, setAddBalanceIopen] = useState(false);
-  const [addExpenseIsopen, setAddExpenseIopen] = useState(false);
-  const [isMounted, setMounted] = useState(false);
+const Heropage = ({
+  balance,
+  setBalance,
+  expense,
+  setExpense,
+  addbalanceIsopen,
+  setAddBalanceIopen,
+  addExpenseIsopen,
+  setAddExpenseIopen,
+  isMounted,
+  setMounted,
+  expenseList,
+  setExpenseList,
+  setCategorySpends,
+  setCategoryCount,
+}) => {
   // const localBalance = window.localStorage({ balance: 5000, expense: 0 });
 
   useEffect(() => {
     const localBalance = localStorage.getItem("balance");
-
     if (localBalance) {
       setBalance(localBalance);
     } else {
       setBalance(5000);
       localStorage.setItem("balance", 5000);
     }
+
+    setExpenseList(JSON.parse(localStorage.getItem("expenses")) || []);
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (isMounted) localStorage.setItem("balance", balance);
+    if (isMounted) {
+      localStorage.setItem("balance", balance);
+    }
   }, [balance]);
 
-  
+  useEffect(() => {
+    if (expenseList.length > 0 || isMounted) {
+      localStorage.setItem("expenses", JSON.stringify(expenseList));
+    }
+
+    if (expenseList.length > 0) {
+      setExpense(
+        expenseList.reduce(
+          (accumulator, currentValue) =>
+            accumulator + Number(currentValue.price),
+          0
+        )
+      );
+    } else {
+      setExpense(0);
+    }
+
+    let foodSpends = 0,
+      entertainmentSpends = 0,
+      travelSpends = 0;
+    let foodCount = 0,
+      entertainmentCount = 0,
+      travelCount = 0;
+
+    expenseList.forEach((item) => {
+      if (item.category == "food") {
+        foodSpends += Number(item.price);
+        foodCount++;
+      } else if (item.category == "entertainment") {
+        entertainmentSpends += Number(item.price);
+        entertainmentCount++;
+      } else if (item.category == "travel") {
+        travelSpends += Number(item.price);
+        travelCount++;
+      }
+    });
+
+    setCategorySpends({
+      food: foodSpends,
+      travel: travelSpends,
+      entertainment: entertainmentSpends,
+    });
+
+    setCategoryCount({
+      food: foodCount,
+      travel: travelCount,
+      entertainment: entertainmentCount,
+    });
+  }, [expenseList]);
+
   return (
     <>
       <div className="heropage">
@@ -80,6 +141,9 @@ const Heropage = () => {
           setIsOpen={setAddExpenseIopen}
           setExpense={setExpense}
           setBalance={setBalance}
+          expenseList={expenseList}
+          setExpenseList={setExpenseList}
+          balance={balance}
         />
       </AddModal>
 

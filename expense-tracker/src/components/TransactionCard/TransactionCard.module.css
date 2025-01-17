@@ -1,0 +1,16 @@
+.cointenair {
+  display: flex;
+  border-bottom: 1px solid #9b9b9b;
+  padding-bottom: 8px;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+  gap: 20px;
+}
+
+.icon {
+  background: #cccccc;
+  border-radius: 50%;
+  padding: 10px;
+}
