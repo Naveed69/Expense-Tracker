@@ -1,15 +1,13 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { SnackbarProvider } from "notistack";
-import Display from "./components/Display";
+import Home from './pages/Home/Home'
+import { SnackbarProvider } from 'notistack';
 
 function App() {
   return (
-    <div>
-      <SnackbarProvider>
-        <Display />
-      </SnackbarProvider>
-    </div>
+    <SnackbarProvider >
+      <div>
+        <Home />
+      </div>
+    </SnackbarProvider>
   );
 }
 
